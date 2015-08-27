@@ -94,8 +94,7 @@ public class CityConnect {
 		while (true) {
 			System.out.print("Enter command:");
 			String command = scanner.nextLine();
-			String userCommand = command;
-			String feedback = executeCommand(userCommand);
+			String feedback = executeCommand(command);
 			showToUser(feedback);
 		}
 	}

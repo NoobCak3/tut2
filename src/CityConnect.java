@@ -247,7 +247,7 @@ public class CityConnect {
 		String newEndLocation = parameters[END_LOCATION];
 		String distance = parameters[DISTANCE];
 
-		if (Integer.parseInt(distance) <= 0){
+		if (!isPositiveNonZeroInt(distance)){
 			return String.format(MESSAGE_INVALID_FORMAT, userCommand);
 		}
 
@@ -313,6 +313,16 @@ public class CityConnect {
 		if ((startLocation1 == null) || (endLocation1 == null)
 				&& (startLocation2 == null) || (endLocation2 == null)){
 			throw new Error("Route end points cannot be null");
+		}
+	}
+
+	private static boolean isPositiveNonZeroInt(String s) {
+		try {
+			int i = Integer.parseInt(s);
+			//return true if i is greater than 0
+			return (i > 0 ? true : false);
+		} catch (NumberFormatException nfe) {
+			return false;
 		}
 	}
 

@@ -67,9 +67,9 @@ public class CityConnect {
 	private static final int PARAM_SIZE_FOR_GET_DISTANCE = 2;
 
 	// These are the locations at which various parameters will appear in a command
-	private static final int PARAM_POSITION_START_LOCATION = 0;
-	private static final int PARAM_POSITION_END_LOCATION = 1;
-	private static final int PARAM_POSITION_DISTANCE = 2;
+	private static final int START_LOCATION = 0;
+	private static final int END_LOCATION = 1;
+	private static final int DISTANCE = 2;
 
 	// This array will be used to store the routes
 	private static String[][] route = new String[10][3];
@@ -199,8 +199,8 @@ public class CityConnect {
 			return String.format(MESSAGE_INVALID_FORMAT, userCommand);
 		}
 
-		String newStartLocation = parameters[PARAM_POSITION_START_LOCATION];
-		String newEndLocation = parameters[PARAM_POSITION_END_LOCATION];
+		String newStartLocation = parameters[START_LOCATION];
+		String newEndLocation = parameters[END_LOCATION];
 
 		int position = getPositionOfExistingRoute(newStartLocation, newEndLocation);
 
@@ -254,9 +254,9 @@ public class CityConnect {
 			return String.format(MESSAGE_INVALID_FORMAT, userCommand);
 		}
 
-		String newStartLocation = parameters[PARAM_POSITION_START_LOCATION];
-		String newEndLocation = parameters[PARAM_POSITION_END_LOCATION];
-		String distance = parameters[PARAM_POSITION_DISTANCE];
+		String newStartLocation = parameters[START_LOCATION];
+		String newEndLocation = parameters[END_LOCATION];
+		String distance = parameters[DISTANCE];
 
 		if (!isPositiveNonZeroInt(distance)){
 			return String.format(MESSAGE_INVALID_FORMAT, userCommand);

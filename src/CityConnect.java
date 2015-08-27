@@ -128,6 +128,11 @@ public class CityConnect {
 
 		COMMAND_TYPE commandType = determineCommandType(commandTypeString);
 
+		return executeActualCommand(userCommand, commandType);
+		
+	}
+
+	private static String executeActualCommand(String userCommand, COMMAND_TYPE commandType) throws Error {
 		switch (commandType) {
 		case ADD_ROUTE:
 			return addRoute(userCommand);
@@ -140,8 +145,7 @@ public class CityConnect {
 		default:
 			//throw an error if the command is not recognized
 			throw new Error("Unrecognized command type");
-		}
-		/*
+		}/*
 		 * ==============NOTE TO STUDENTS======================================
 		 * If the rest of the program is correct, this error will never be thrown.
 		 * That is why we use an Error instead of an Exception.
